@@ -7,6 +7,10 @@ docker_service 'default' do
   action [:create, :start]
 end
 
+docker_image 'portainer/portainer'
+docker_image 'jwilder/nginx-proxy'
+docker_image 'jrcs/letsencrypt-nginx-proxy-companion'
+
 docker_volume 'portainer_data' do
   action :create
 end
