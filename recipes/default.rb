@@ -46,3 +46,12 @@ docker_container 'nginx-proxy-ssl-companion' do
   volumes_from 'nginx-proxy'
   volumes ['/var/run/docker.sock:/var/run/docker.sock:ro']
 end
+
+cron 'docker_cleanup' do
+  action :create
+  minute '0'
+  hour '0'
+  day '*'
+  user 'root'
+  command 'docker system prune -fa'
+end
