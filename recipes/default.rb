@@ -35,7 +35,7 @@ docker_container 'nginx-proxy' do
     '/etc/nginx/certs',
     '/etc/nginx/vhost.d',
     '/usr/share/nginx/html',
-    '/var/run/docker.sock:/var/run/docker.sock:ro'
+    '/var/run/docker.sock:/tmp/docker.sock:ro'
   ]
 end
 
