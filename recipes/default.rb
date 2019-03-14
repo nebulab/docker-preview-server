@@ -47,6 +47,13 @@ docker_container 'nginx-proxy-ssl-companion' do
   volumes ['/var/run/docker.sock:/var/run/docker.sock:ro']
 end
 
+group 'docker' do
+  action :modify
+  append true
+  members 'ubuntu'
+  ignore_failure true
+end
+
 cron 'docker_cleanup' do
   action :create
   minute '0'
